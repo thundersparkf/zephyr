@@ -6,7 +6,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-
 #include <zephyr/types.h>
 #include <stddef.h>
 #include <sys/printk.h>
@@ -14,10 +13,6 @@
 
 #include <bluetooth/bluetooth.h>
 #include <bluetooth/hci.h>
-#include <string.h>
-
-char devices[20][100] = {};
-int pck_len = 0;
 
 static void device_found(const bt_addr_le_t *addr, int8_t rssi, uint8_t type,
 			 struct net_buf_simple *ad)
@@ -25,26 +20,16 @@ static void device_found(const bt_addr_le_t *addr, int8_t rssi, uint8_t type,
 	char addr_str[BT_ADDR_LE_STR_LEN];
 
 	bt_addr_le_to_str(addr, addr_str, sizeof(addr_str));
-        int i, flag = 0;
-        for(i = 0; i < pck_len; i++) {
-                if(!(strcmp(devices[i], addr_str))) {
-                        flag = 1; // Already present
-                }
-        }
-        if(!flag) {
-                strcpy(devices[i], addr_str);
-                pck_len++;
-                printk("Device found: %s (RSSI %d) \n", addr_str, rssi);
-        }
+        printk("Device found: %s (RSSI %d) \n", addr_str, rssi);
 }
 
 void main(void)
 {
 	struct bt_le_scan_param scan_param = {
-		.type       = BT_HCI_LE_SCAN_PASSIVE,
-		.options    = BT_LE_SCAN_OPT_NONE,
-		.interval   = 0x0010,
-		.window     = 0x0010,
+		.type       = BT_LE_SCAN_TYPE_PASSIVE,
+		.options    = BT_LE_SCAN_OPT_FILTER_DUPLICATE,
+		.interval   = BT_GAP_SCAN_FAST_INTERVAL, 
+		.window     = BT_GAP_SCAN_FAST_WINDOW, 
 	};
 	int err;
 

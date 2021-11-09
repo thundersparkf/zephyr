@@ -1,8 +1,7 @@
 sample:
-  description: TBD
-  name: TBD
+  name: observer
 tests:
-  sample.bluetooth.scanner:
+  sample.bluetooth.observer:
     harness: bluetooth
     platform_allow: qemu_cortex_m3 qemu_x86
     tags: bluetooth

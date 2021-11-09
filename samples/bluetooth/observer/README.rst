@@ -1,6 +1,6 @@
-.. _bluetooth-scanner-sample:
+.. _bluetooth-observer-sample:
 
-Bluetooth: Scan 
+Bluetooth: Observer 
 ###########################
 
 Overview
@@ -19,7 +19,7 @@ Requirements
 Building and Running
 ********************
 
-This sample can be found under :zephyr_file:`samples/bluetooth/scanner` in the
+This sample can be found under :zephyr_file:`samples/bluetooth/observer` in the
 Zephyr tree.
 
 See :ref:`bluetooth samples section <bluetooth-samples>` for details.

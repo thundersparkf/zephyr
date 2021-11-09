@@ -38,7 +38,7 @@ void main(void)
 	do {
 		k_msleep(1000);
 
-                 printk("Sending advertising data: 0x%02X \n", mfg_data[2]);
+                printk("Sending advertising data: 0x%02X \n", mfg_data[2]);
 
 		/* Start advertising */
 		err = bt_le_adv_start(BT_LE_ADV_NCONN, ad, ARRAY_SIZE(ad),

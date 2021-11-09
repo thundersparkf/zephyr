@@ -1,6 +1,6 @@
-.. _bluetooth-advertiser-sample:
+.. _bluetooth-broadcaster-sample:
 
-Bluetooth: Advertise
+Bluetooth: Broadcaster
 ###########################
 
 Overview
@@ -21,7 +21,7 @@ Requirements
 Building and Running
 ********************
 
-This sample can be found under :zephyr_file:`samples/bluetooth/advertiser` in the
+This sample can be found under :zephyr_file:`samples/bluetooth/broadcaster` in the
 Zephyr tree.
 
 See :ref:`bluetooth samples section <bluetooth-samples>` for details.
